@@ -108,8 +108,10 @@ function calculate() {
     }
 
     let pace = time / dist;
-    let paceStr = `${Math.floor(pace / 60.0)}:${pace % 60 < 10 ? "0" : ""}${Math.round(pace % 60)}`;
+    let paceStr = `${Math.floor(pace / 60.0)}:${Math.round(pace % 60) < 10 ? "0" : ""}${Math.round(pace % 60)}`;
     $('#result').html(`${dist.toFixed(2)} mi @ ${paceStr}`);
 }
 
 addEntry();
+
+setInterval(updateCalcOnChanges, 500);
