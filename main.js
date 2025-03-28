@@ -92,10 +92,10 @@ function calculate() {
         d *= reps;
 
         for (let j = 0; j < reps; j++) {
-            t += parseTime($(`#entry-${i} #time-${j}`).val());
-        }
-        if ($(`#entry-${i} .pace-toggle`).hasClass("toggle-on")) {
-            t *= d;
+            if ($(`#entry-${i} .pace-toggle`).hasClass("toggle-on")) {
+                t += parseTime($(`#entry-${i} #time-${j}`).val()) * d / reps;
+            } 
+            else t += parseTime($(`#entry-${i} #time-${j}`).val());
         }
 
         dist += d;
